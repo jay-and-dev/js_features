@@ -116,7 +116,35 @@ let blueBtn = document.querySelector("body > main > section > div > p > a.btn.bt
 let leftCard = function(e) {
   e.preventDefault();
   lastCard.after(CardOne);
-}
-blueBtn.addEventListener("click", leftCard);
-//Fonctionnalité 9
+};
 
+blueBtn.addEventListener("click", leftCard);
+
+//Fonctionnalité 9
+let jsLogo = document.querySelector("body > header > div.navbar.navbar-dark.bg-dark.box-shadow > div > a");
+let body = document.querySelector("body");
+let logKey = function(e) {
+  switch (e.code) {
+    case 'KeyA' :
+      body.className = '';
+      body.classList.add("col-4");
+      break;
+    case 'KeyY' :
+      body.className = '';
+      body.classList.add("offset-md-4");
+      body.classList.add("col-4");
+
+      break;
+    case 'KeyP' :
+      body.className = '';
+      body.classList.add("offset-md-8");
+      break;
+    case 'KeyB' :
+      body.className = '';
+      break;
+    default:
+      console.log("Petit coquin");
+  }
+};
+
+jsLogo.addEventListener("keypress", logKey);
