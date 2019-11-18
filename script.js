@@ -72,13 +72,51 @@ let toggleLink = function() {
     linkDisabled = true;
   };
 };
-console.log(navbar);
+
 navbar.addEventListener("dblclick", toggleLink);
 
 //Fonctionnalité 6
+let viewBtn = document.querySelectorAll(".btn-group button");
+let allCard = document.querySelectorAll(".card");
+let hidden = false;
+
+viewBtn.forEach(function (btn, index) {
+  if (index%2 == 0 || index == 0) {
+    let content = btn.parentElement.parentElement.previousElementSibling.textContent;
+    let toggleHidden = function() {
+      if (hidden) {
+        btn.parentElement.parentElement.previousElementSibling.textContent = content;
+        btn.parentElement.parentElement.parentElement.previousElementSibling.style.width = "100%";
+        hidden = false;
+      } else {
+        btn.parentElement.parentElement.previousElementSibling.textContent = "";
+        btn.parentElement.parentElement.parentElement.previousElementSibling.style.width = "20%";
+        hidden = true;
+      }
+    };
+    btn.addEventListener("mouseover", toggleHidden);
+  };
+});
 
 //Fonctionnalité 7
+let grayBtn = document.querySelector("body > main > section > div > p > a.btn.btn-secondary.my-2");
+let nodeCard = document.querySelector("body > main > div > div > div");
+let CardOne = document.querySelector("body > main > div > div > div > div:nth-child(1)");
+let lastCard = document.querySelector("body > main > div > div > div > div:nth-child(6)");
+
+let moveCard = function() {
+  nodeCard.insertBefore(lastCard, CardOne);  
+};
+
+grayBtn.addEventListener("click", moveCard);
 
 //Fonctionnalité 8
+let blueBtn = document.querySelector("body > main > section > div > p > a.btn.btn-primary.my-2");
 
+let leftCard = function(e) {
+  e.preventDefault();
+  lastCard.after(CardOne);
+}
+blueBtn.addEventListener("click", leftCard);
 //Fonctionnalité 9
+
