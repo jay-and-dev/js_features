@@ -45,7 +45,6 @@ firstEditBtn.addEventListener("click", redText);
 //Fonctionnalité 4
 let secondEditBtn = document.querySelectorAll(".btn-group button")[3];
 let secondCard = document.querySelectorAll(".card")[1];
-console.log(secondCard);
 color = false;
 let toggleColor = function() {
   if (color) {
@@ -60,7 +59,21 @@ let toggleColor = function() {
 secondEditBtn.addEventListener("click", toggleColor);
 
 //Fonctionnalité 5
+let link = document.getElementsByTagName("link")[0];
+let navbar = document.querySelector(".navbar");
 
+linkDisabled = false;
+let toggleLink = function() {
+  if (linkDisabled) {
+    link.href = "https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css";
+    linkDisabled = false;
+  } else {
+    link.href = "";
+    linkDisabled = true;
+  };
+};
+console.log(navbar);
+navbar.addEventListener("dblclick", toggleLink);
 
 //Fonctionnalité 6
 
